@@ -1,0 +1,7 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Audiobook Server",
+  "main": "app.js",
+  "license": "MIT"
+}
