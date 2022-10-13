@@ -5,11 +5,15 @@ import { app } from "./config/firebase.config";
 import { getAuth } from "firebase/auth";
 import { AnimatePresence } from "framer-motion";
 import { validateUser } from "./api";
+import { useStateValue } from "./Context/StateProvider";
+import { actionType } from "./Context/reducer";
 
 
 const App = () => {
     const firebaseAuth = getAuth(app);
     const navigate = useNavigate();
+
+    const [{ user }, dispatch] = useStateValue();
 
     const [auth, setAuth] = useState(
         false || window.localStorage.getItem("auth") === "true"
@@ -21,12 +25,19 @@ const App = () => {
                 userCred.getIdToken().then((token) => {
                     // console.log(token);
                     validateUser(token).then((data) => {
-                        console.log(data)
+                        dispatch({
+                            type: actionType.SET_USER,
+                            user: data,
+                        })
                     })
                 })
             } else {
                 setAuth(false);
                 window.localStorage.setItem("auth", "false");
+                dispatch({
+                    type: actionType.SET_USER,
+                    user: null,
+                })
                 navigate("/login")
             }
         })
