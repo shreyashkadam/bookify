@@ -6,6 +6,7 @@ const cors = require("cors");
 const {default : mongoose} = require("mongoose");
 
 app.use(cors({origin : true}))
+app.use(express.json());
 
 app.get("/", (req, res) => {
     return res.json("Hey there....")
@@ -14,6 +15,18 @@ app.get("/", (req, res) => {
 // user authentication routes
 const userRoute = require("./routes/auth");
 app.use("/api/users/", userRoute);
+
+// Authors links
+const authorRoute = require("./routes/author");
+app.use("/api/author/", authorRoute);
+
+// Series links
+const seriesRoute = require("./routes/series");
+app.use("/api/series/", seriesRoute);
+
+// Audiobooks links
+const audiobookRoute = require("./routes/audiobook");
+app.use("/api/audiobook/", audiobookRoute);
 
 mongoose.connect(process.env.DB_STRING, {useNewUrlParser : true});
 mongoose.connection
