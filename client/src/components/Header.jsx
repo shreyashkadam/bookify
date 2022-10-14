@@ -32,7 +32,7 @@ const Header = () => {
 
             <ul className="flex items-center justify-center ml-7">
                 <li className="mx-5 text-lg"><NavLink to={'/home'} className={({ isActive }) => isActive ? isActiveStyles : isNotActiveStyles}>Home</NavLink></li>
-                <li className="mx-5 text-lg"><NavLink to={'/musics'} className={({ isActive }) => isActive ? isActiveStyles : isNotActiveStyles}>Musics</NavLink></li>
+                <li className="mx-5 text-lg"><NavLink to={'/audiobooks'} className={({ isActive }) => isActive ? isActiveStyles : isNotActiveStyles}>Audiobooks</NavLink></li>
                 <li className="mx-5 text-lg"><NavLink to={'/premium'} className={({ isActive }) => isActive ? isActiveStyles : isNotActiveStyles}>Premium</NavLink></li>
                 <li className="mx-5 text-lg"><NavLink to={'/contact'} className={({ isActive }) => isActive ? isActiveStyles : isNotActiveStyles}>Contact</NavLink></li>
             </ul>
