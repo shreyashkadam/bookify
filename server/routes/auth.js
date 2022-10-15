@@ -49,20 +49,36 @@ const newUserData = async (decodeValue, req, res) => {
 const updateUserData = async (decodeValue, req, res) => {
     const filter = { user_id: decodeValue.user_id };
     const options = {
-      upsert: true,
-      new: true,
+        upsert: true,
+        new: true,
     };
-  
+
     try {
-      const result = await user.findOneAndUpdate(
-        filter,
-        { auth_time: decodeValue.auth_time },
-        options
-      );
-      res.status(200).send({ user: result });
+        const result = await user.findOneAndUpdate(
+            filter,
+            { auth_time: decodeValue.auth_time },
+            options
+        );
+        res.status(200).send({ user: result });
     } catch (err) {
-      res.status(400).send({ success: false, msg: err });
+        res.status(400).send({ success: false, msg: err });
     }
-  };
+};
+
+router.get("/getUsers", async (req, res) => {
+    const options = {
+        // sort returned documents in ascending order
+        sort: { createdAt: 1 },
+        // Include only the following
+        // projection : {}
+    };
+
+    const cursor = await user.find(options);
+    if (cursor) {
+        res.status(200).send({ success: true, data: cursor });
+    } else {
+        res.status(200).send({ success: true, msg: "No Data Found" });
+    }
+});
 
 module.exports = router;
