@@ -9,3 +9,4 @@ export { default as DashboardUsers } from "./DashboardUsers";
 export {default as DashboardAuthors} from "./DashboardAuthors";
 export {default as DashboardSeries} from "./DashboardSeries";
 export {default as DashboardNewAudiobook} from "./DashboardNewAudiobook";
+export {default as DashboardUserCard} from "./DashboardUserCard";

@@ -81,4 +81,33 @@ router.get("/getUsers", async (req, res) => {
     }
 });
 
+router.put("/updateRole/:userId", async (req, res) => {
+    console.log(req.body.data.role, req.params.userId);
+    const filter = { _id: req.params.userId };
+    const role = req.body.data.role;
+  
+    const options = {
+      upsert: true,
+      new: true,
+    };
+  
+    try {
+      const result = await user.findOneAndUpdate(filter, { role: role }, options);
+      res.status(200).send({ user: result });
+    } catch (err) {
+      res.status(400).send({ success: false, msg: err });
+    }
+  });
+
+  router.delete("/delete/:userId", async (req, res) => {
+    const filter = { _id: req.params.userId };
+  
+    const result = await user.deleteOne(filter);
+    if (result.deletedCount === 1) {
+      res.status(200).send({ success: true, msg: "Data Deleted" });
+    } else {
+      res.status(200).send({ success: false, msg: "Data Not Found" });
+    }
+  });
+
 module.exports = router;
