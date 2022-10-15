@@ -70,3 +70,39 @@ export const validateUser = async (token) => {
       return null;
     }
   };
+
+  export const saveNewAuthor = async (data) => {
+    try {
+      const res = axios.post(`${baseURL}api/author/save`, { ...data });
+      return (await res).data.author;
+    } catch (error) {
+      return null;
+    }
+  };
+  
+  export const saveNewSeries = async (data) => {
+    try {
+      const res = axios.post(`${baseURL}api/series/save`, { ...data });
+      return (await res).data.series;
+    } catch (error) {
+      return null;
+    }
+  };
+  
+  export const saveNewAudiobook = async (data) => {
+    try {
+      const res = axios.post(`${baseURL}api/audiobook/save`, { ...data });
+      return (await res).data.audiobook;
+    } catch (error) {
+      return null;
+    }
+  };
+  
+  export const deleteAudiobookById = async (id) => {
+    try {
+      const res = axios.delete(`${baseURL}api/audiobook/delete/${id}`);
+      return res;
+    } catch (error) {
+      return null;
+    }
+  };

@@ -1,3 +1,23 @@
+.rhap_progress-filled {
+    background-color: #ff0000 !important;
+}
+
+.rhap_progress-indicator,
+.rhap_volume-indicator {
+    background: #b4b4b4 !important;
+}
+
+.rhap_progress-indicator:hover,
+.rhap_volume-indicator:hover {
+    transform: scale(1.2);
+}
+
+.rhap_download-progress,
+.rhap_volume-bar {
+    background-color: #ff000033 !important;
+}
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
