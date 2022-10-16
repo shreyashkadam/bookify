@@ -44,7 +44,7 @@ export const validateUser = async (token) => {
 
   export const getAllAuthors = async () => {
     try {
-      const res = await axios.get(`${baseURL}api/author/getAll`);
+      const res = await axios.get(`${baseURL}api/author/getALL`);
       return res.data;
     } catch (error) {
       return null;
