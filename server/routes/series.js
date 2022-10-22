@@ -5,6 +5,7 @@ const series = require("../models/series");
 router.post("/save", async (req, res) => {
     const newSeries = series({
         name: req.body.name,
+        imageURL: req.body.imageURL,
     });
     try {
         const savedSeries = await newSeries.save();

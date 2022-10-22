@@ -106,3 +106,21 @@ export const validateUser = async (token) => {
       return null;
     }
   };
+
+  export const deleteAuthorById = async (id) => {
+    try {
+      const res = axios.delete(`${baseURL}api/author/delete/${id}`);
+      return res;
+    } catch (error) {
+      return null;
+    }
+  };
+
+  export const deleteSeriesById = async (id) => {
+    try {
+      const res = axios.delete(`${baseURL}api/series/delete/${id}`);
+      return res;
+    } catch (error) {
+      return null;
+    }
+  };
