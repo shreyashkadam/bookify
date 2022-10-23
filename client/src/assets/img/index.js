@@ -1,1 +1,2 @@
-export { default as Logo } from "../img/Bookify Icon (1).svg"
+export { default as Logo } from "../img/BookifyImageIcon.png"
+export {default as TextLogo} from "./BookifyTextIcon.png"

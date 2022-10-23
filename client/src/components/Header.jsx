@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
-import { Logo } from '../assets/img/index'
+import { Logo, TextLogo } from '../assets/img/index'
 import { isActiveStyles, isNotActiveStyles } from "../utils/styles";
 import { FaCrown } from "react-icons/fa";
 import { useStateValue } from "../Context/StateProvider";
@@ -25,17 +25,19 @@ const Header = () => {
     };
 
     return (
-        <header className='flex items-center w-full p-4 md:py-2 md:px-6'>
-            <NavLink to="/">
-                <img src={Logo} alt="Logo" className='w-16' />
-            </NavLink>
+        <header className='flex justify-between w-full p-4 md:py-1 md:px-6'>
+            <div className="flex justify-center items-center">
+                <NavLink to="/home">
+                    <img src={Logo} alt="Logo" className='w-16' />
+                </NavLink>
+            </div>
 
-            <ul className="flex items-center justify-center ml-7">
-                <li className="mx-5 text-lg"><NavLink to={'/home'} className={({ isActive }) => isActive ? isActiveStyles : isNotActiveStyles}>Home</NavLink></li>
-                <li className="mx-5 text-lg"><NavLink to={'/audiobooks'} className={({ isActive }) => isActive ? isActiveStyles : isNotActiveStyles}>Audiobooks</NavLink></li>
-                <li className="mx-5 text-lg"><NavLink to={'/premium'} className={({ isActive }) => isActive ? isActiveStyles : isNotActiveStyles}>Premium</NavLink></li>
-                <li className="mx-5 text-lg"><NavLink to={'/contact'} className={({ isActive }) => isActive ? isActiveStyles : isNotActiveStyles}>Contact</NavLink></li>
-            </ul>
+
+            <div className="flex justify-center items-center ml-7">
+                <NavLink to="/">
+                    <img src={TextLogo} alt="Logo" className='h-12' />
+                </NavLink>
+            </div>
 
             <div className="flex items-center ml-auto cursor-pointer gap-2 relative"
                 onMouseEnter={() => setIsMenu(true)}
