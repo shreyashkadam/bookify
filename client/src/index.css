@@ -1,22 +1,57 @@
-.rhap_progress-filled {
-    background-color: #ff0000 !important;
+@import url(https://fonts.googleapis.com/css?family=Jost:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+body {
+  background: #f5f3f3;
+  margin: 0;
+  font-family: "Jost", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.rhap_progress-indicator,
-.rhap_volume-indicator {
-    background: #b4b4b4 !important;
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
-.rhap_progress-indicator:hover,
-.rhap_volume-indicator:hover {
-    transform: scale(1.2);
+.rhap_container{
+  background-color: transparent !important;
+  box-shadow: none !important;
 }
 
-.rhap_download-progress,
-.rhap_volume-bar {
-    background-color: #ff000033 !important;
+.rhap_play-pause-button{
+  color: #ff0000 !important;
+  transition: all 0.3s ease-in-out;
 }
 
+.rhap_play-pause-button:hover{
+  transform: scale(1.2);
+}
+
+.rhap_forward-button, .rhap_rewind-button, .rhap_skip-button, .rhap_volume-button, .rhap_repeat-button{
+  transition: all 0.3s ease-in-out;
+}
+
+.rhap_forward-button:hover, .rhap_rewind-button:hover, .rhap_skip-button:hover, .rhap_volume-button:hover, .rhap_repeat-button:hover{
+  transform: scale(1.2);
+  color : #555 !important;
+}
+
+.rhap_progress-filled{
+  background-color: #ff0000 !important;
+}
+
+.rhap_progress-indicator, .rhap_volume-indicator{
+  background: #b4b4b4  !important;
+}
+
+.rhap_progress-indicator:hover, .rhap_volume-indicator:hover{
+  transform: scale(1.2);
+}
+
+.rhap_download-progress, .rhap_volume-bar{
+  background-color: #ff000033 !important; 
+}
 
 @tailwind base;
 @tailwind components;

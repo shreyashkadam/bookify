@@ -66,7 +66,7 @@ const DashboardUserCard = ({ data, index }) => {
       )}
       <div className="w-275 min-w-[160px] flex items-center justify-center">
         {/* prettier-ignore */}
-        <img src={data.imageURL} alt="" className="w-10 h-10 object-cover rounded-md min-w-[40px] shadow-md"
+        <img src={data.imageURL} alt="" referrerPolicy="no-referrer" className="w-10 h-10 object-cover rounded-md min-w-[40px] shadow-md"
         />
       </div>
       {/* prettier-ignore */}
