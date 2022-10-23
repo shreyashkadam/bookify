@@ -34,12 +34,12 @@ const Header = () => {
 
 
             <div className="flex justify-center items-center ml-7">
-                <NavLink to="/">
+                <NavLink to="/home">
                     <img src={TextLogo} alt="Logo" className='h-12' />
                 </NavLink>
             </div>
 
-            <div className="flex items-center ml-auto cursor-pointer gap-2 relative"
+            <div className="flex items-center cursor-pointer gap-2 relative"
                 onMouseEnter={() => setIsMenu(true)}
                 onMouseLeave={() => setIsMenu(false)}
             >
@@ -69,9 +69,6 @@ const Header = () => {
                                 Profile
                             </p>
                         </NavLink>
-                        <p className="text-base text-textColor hover:font-semibold duration-150 transition-all ease-in-out">
-                            My Favourites
-                        </p>
                         <hr />
                         {user?.user.role === "admin" && (
                             <>
