@@ -19,9 +19,6 @@
 .env.test.local
 .env.production.local
 
-../server/.env
-../server/config/serveiceAccountKey.json
-
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
