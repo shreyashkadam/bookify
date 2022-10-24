@@ -10,6 +10,7 @@ export const filters = [
   { id: 7, name: "Romance", value: "romance" },
   { id: 8, name: "Self-Help", value: "self-help" },
   { id: 9, name: "Educational", value: "educational" },
+  { id: 10, name: "Crime", value: "crime"},
 ];
 
 export const filterByLanguage = [
