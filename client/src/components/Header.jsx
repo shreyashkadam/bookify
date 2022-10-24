@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
-import { CompleteLogo, Logo, TextLogo } from '../assets/img/index'
-import { isActiveStyles, isNotActiveStyles } from "../utils/styles";
+import { CompleteLogo } from '../assets/img/index'
 import { FaCrown } from "react-icons/fa";
 import { useStateValue } from "../Context/StateProvider";
 import { getAuth } from "firebase/auth";
