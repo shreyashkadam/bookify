@@ -16,7 +16,6 @@ router.post('/checkout', async(req, res) =>{
 
     try {
         const order = await instance.orders.create(options);
-        console.log(order);
         res.status(200).send({ order });
     } catch (error) {
         res.status(400).send({ success: false, msg: error });
