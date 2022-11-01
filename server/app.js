@@ -8,6 +8,12 @@ const {default : mongoose} = require("mongoose");
 app.use(cors({origin : true}))
 app.use(express.json());
 
+const Razorpay = require('razorpay');
+const instance = new Razorpay({
+    key_id: process.env.RAZORPAY_API_KEY,
+    key_secret: process.env.RAZORPAY_API_SECRET,
+});
+
 app.get("/", (req, res) => {
     return res.json("Hey there....")
 })
@@ -34,5 +40,7 @@ mongoose.connection
 .on("error", (error) => {
     console.log(`ERROR : ${error}`);
 })
+
+
 
 app.listen(4000, () => console.log("Listening to port 4000"));
