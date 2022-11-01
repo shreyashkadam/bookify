@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { NavLink, useNavigate } from 'react-router-dom'
 import { getAllAudiobooks } from "../api";
 import { actionType } from "../Context/reducer";
 import { useStateValue } from "../Context/StateProvider";
@@ -6,6 +7,7 @@ import { AudiobookCard } from "./DashboardAudiobooks";
 import Filter from "./Filter";
 import Header from "./Header";
 import SearchBar from "./SearchBar";
+import { FaCrown } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const Home = () => {
@@ -115,22 +117,54 @@ const Home = () => {
 };
 
 export const HomeAudiobookContainer = ({ musics }) => {
-  const [{ isAudiobookPlaying, audiobook }, dispatch] = useStateValue();
+  const navigate = useNavigate;
+  const [isClicked, setIsClicked] = useState(false);
+  const [alert, setAlert] = useState(null);
+  const [alertMsg, setAlertMsg] = useState("");
+  const [{ user, isAudiobookPlaying, audiobook }, dispatch] = useStateValue();
 
   const addAudiobookToContext = (index) => {
-    if (!isAudiobookPlaying) {
-      dispatch({
-        type: actionType.SET_AUDIOBOOK_PLAYING,
-        isAudiobookPlaying: true,
-      });
-    }
-    if (audiobook !== index) {
-      dispatch({
-        type: actionType.SET_AUDIOBOOK,
-        audiobook: index,
-      });
+    if (user?.user.role === "admin" || user?.user.isPremium === true) {
+      if (!isAudiobookPlaying) {
+        dispatch({
+          type: actionType.SET_AUDIOBOOK_PLAYING,
+          isAudiobookPlaying: true,
+        });
+      }
+      if (audiobook !== index) {
+        dispatch({
+          type: actionType.SET_AUDIOBOOK,
+          audiobook: index,
+        });
+      }
+    } else {
+      setAlert("success");
+      setAlertMsg("Buy premium to enjoy listening Audiobook!")
+      setTimeout(() => {
+        setAlert(null);
+      }, 8000);
     }
   };
+
+  const AlertPremium = ({ msg }) => {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: -100, scale: 0.6 }}
+        animate={{ opacity: 1, y: 50, scale: 1 }}
+        exit={{ opacity: 0, y: -100, scale: 0.6 }}
+        className="w-screen z-50 fixed top-10 left-0 flex items-center justify-center"
+      >
+        <div className="w-460  bg-card rounded-md shadow-md backdrop-blur-md px-4 py-2 flex items-center gap-4">
+          <div className="w-[4px] h-10 bg-yellow-500 rounded-md"></div>
+          <FaCrown className="text-xl text-yellow-500" />
+          <p className="text-base font-semibold text-textColor">
+            {msg?.length > 50 ? `${msg?.slice(0, 50)}...` : msg}
+          </p>
+        </div>
+      </motion.div>
+    );
+  };
+
   return (
     <>
       {musics?.map((data, index) => (
@@ -158,6 +192,11 @@ export const HomeAudiobookContainer = ({ musics }) => {
               {data.author}
             </span>
           </p>
+          {alert === "success" && (
+            <>
+              <AlertPremium msg={alertMsg} />
+            </>
+          )}
         </motion.div>
       ))}
     </>

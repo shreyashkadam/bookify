@@ -31,6 +31,13 @@ const Header = () => {
                 </NavLink>
             </div>
 
+            {!user?.user.isPremium && (
+                <NavLink to={"/checkout"}>
+                    <button className="text-yellow-800 text-2xl hover:text-yellow-500 font-semibold">
+                        Buy Premium
+                    </button>
+                </NavLink>
+            )}
 
             {/* <div className="flex justify-center items-center ml-7">
                 <NavLink to="/home">
