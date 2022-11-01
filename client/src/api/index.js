@@ -124,3 +124,12 @@ export const validateUser = async (token) => {
       return null;
     }
   };
+
+  export const checkoutPayment = async (data) => {
+    try {
+      const res = axios.post(`${baseURL}api/payment/checkout`, { ...data });
+      return res;
+    } catch (error) {
+      return null;
+    }
+  };
