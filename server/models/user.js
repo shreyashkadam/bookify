@@ -29,6 +29,11 @@ const UserSchema = mongoose.Schema(
       required: true,
     },
 
+    isPremium: {
+      type: Boolean,
+      required: true,
+    },
+
     auth_time: {
       type: String,
       required: true,

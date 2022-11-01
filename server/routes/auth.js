@@ -36,6 +36,7 @@ const newUserData = async (decodeValue, req, res) => {
         user_id: decodeValue.user_id,
         email_verfied: decodeValue.email_verified,
         role: "member",
+        isPremium: false,
         auth_time: decodeValue.auth_time,
     });
     try {
