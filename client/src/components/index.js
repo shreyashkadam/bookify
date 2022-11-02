@@ -21,5 +21,3 @@ export { default as FilterButtons } from "./FilterButtons";
 export { default as Filter } from "./Filter";
 
 export { default as MusicPlayer } from "./MusicPlayer";
-
-export { default as PremiumCheckout } from "./PremiumCheckout";
