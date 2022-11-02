@@ -7,6 +7,7 @@ const {default : mongoose} = require("mongoose");
 
 app.use(cors({origin : true}))
 app.use(express.json());
+app.use(express.urlencoded({extended: true}))
 
 
 

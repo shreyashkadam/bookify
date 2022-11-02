@@ -125,10 +125,10 @@ export const validateUser = async (token) => {
     }
   };
 
-  export const checkoutPayment = async (data) => {
+  export const checkoutPayment = async (amount) => {
     try {
-      const res = axios.post(`${baseURL}api/payment/checkout`, { ...data });
-      return res;
+      const res = await axios.post(`${baseURL}api/payment/checkout`, {amount});
+      return res.data;
     } catch (error) {
       return null;
     }

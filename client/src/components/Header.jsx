@@ -6,11 +6,39 @@ import { useStateValue } from "../Context/StateProvider";
 import { getAuth } from "firebase/auth";
 import { app } from "../config/firebase.config";
 import { motion } from "framer-motion";
+import { checkoutPayment } from '../api';
+
 
 const Header = () => {
     const [{ user }, dispatch] = useStateValue();
     const [isMenu, setIsMenu] = useState(false);
     const navigate = useNavigate;
+
+    const checkoutHandler = async (amount) => {
+        checkoutPayment(amount).then((data) => {
+            const options = {
+                key: process.env.REACT_APP_RAZORPAY_API_KEY,
+                key_secret: process.env.REACT_APP_RAZORPAY_API_SECRET,
+                amount: data.order.amount,
+                currency: "INR",
+                name: "Bookify",
+                description: "Buy Bookify Premium",
+                order_id: data.order.id,
+                callback_url: "http://localhost:4000/api/payment/paymentVerification",
+                prefill: {
+                    name: "Shreyash",
+                    email: "shreyash.kadam10@gmail.com",
+                    contact: "7208673440"
+                },
+                notes: {
+                    "address": "Razorpay Corporate Office"
+                },
+            };
+            const razor = new window.Razorpay(options);
+            razor.open();
+        })
+
+    }
 
     const logout = () => {
         const firebaseAuth = getAuth(app);
@@ -32,11 +60,11 @@ const Header = () => {
             </div>
 
             {!user?.user.isPremium && (
-                <NavLink to={"/checkout"}>
-                    <button className="text-yellow-800 text-2xl hover:text-yellow-500 font-semibold">
-                        Buy Premium
-                    </button>
-                </NavLink>
+                // <NavLink to={"/checkout"}>
+                <button onClick={() => checkoutHandler(200)} className="text-yellow-800 text-2xl hover:text-yellow-500 font-semibold">
+                    Buy Premium
+                </button>
+                // </NavLink>
             )}
 
             {/* <div className="flex justify-center items-center ml-7">
@@ -59,9 +87,16 @@ const Header = () => {
                     <p className="text-textColor text-lg hover:text-headingColor font-semibold">
                         {user?.user.name}
                     </p>
-                    <p className="flex items-center gap-2 text-xs text-gray-500 font-normal">
-                        Premium Member <FaCrown className="text-xm -ml-1 text-yellow-500" />
-                    </p>
+                    {user?.user.isPremium && (
+                        <p className="flex items-center gap-2 text-xs text-gray-500 font-normal">
+                            Premium Member <FaCrown className="text-xm -ml-1 text-yellow-500" />
+                        </p>
+                    )}
+                    {!user?.user.isPremium && (
+                        <p className="flex items-center gap-2 text-xs text-gray-500 font-normal">
+                            Free Member
+                        </p>
+                    )}
                 </div>
                 {isMenu && (
                     <motion.div
