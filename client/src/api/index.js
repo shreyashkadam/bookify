@@ -62,6 +62,14 @@ export const validateUser = async (token) => {
     }
   };
 
+  export const makePremium = async (userId) => {
+    try {
+      const res = axios.put(`${baseURL}api/users/makePremium/${userId}`);
+      return res;
+    } catch (error) {
+      return null;
+    }
+  };
   
   export const removeUser = async (userId) => {
     try {
