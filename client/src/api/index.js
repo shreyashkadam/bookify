@@ -62,6 +62,7 @@ export const validateUser = async (token) => {
     }
   };
 
+  
   export const removeUser = async (userId) => {
     try {
       const res = axios.delete(`${baseURL}api/users/delete/${userId}`);
