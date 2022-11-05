@@ -4,6 +4,8 @@ import { useStateValue } from "../Context/StateProvider";
 import { actionType } from "../Context/reducer";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from 'react';
+import Loader from './Loader';
+import { async } from '@firebase/util';
 
 const PaymentSuccessful = () => {
     const [{ allUsers, user }, dispatch] = useStateValue();
@@ -20,9 +22,13 @@ const PaymentSuccessful = () => {
         }
       }, []);
 
+    const timeout = (num) => {
+      return new Promise(res => setTimeout(res, num))
+    }
+
     const updatePremium = (userId) => {
-        makePremium(userId).then((res) => {
-            if (res) {
+        makePremium(userId).then(async(res) => {
+            if (res) {              
               getAllUsers().then((data) => {
                 dispatch({
                   type: actionType.SET_ALL_USERS,
@@ -30,6 +36,9 @@ const PaymentSuccessful = () => {
                 });
               });
               navigate("/");
+              await timeout(5000);
+              window.location.reload(false);
+              
             }
           });
     }
