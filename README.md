@@ -22,7 +22,6 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
@@ -31,15 +30,13 @@
 <br />
 <div align="center">
   <a href="https://github.com/shreyashkadam/bookify">
-    <img src="images/logo.png" alt="Logo" width="288" height="80">
+    <img src="readme-images/logo.png" alt="Logo" width="288" height="80">
   </a>
 
 <h3 align="center">Bookify</h3>
 
   <p align="center">
     An Online Audiobook Streaming Website made using MERN Stack, Tailwind CSS, Firebase for Google authentication and Storage, and Razorpay for Payment Integration
-    <br />
-    <a href="https://github.com/shreyashkadam/bookify"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/shreyashkadam/bookify">View Demo</a>
