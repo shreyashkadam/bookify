@@ -1,0 +1,14 @@
+{
+    "name": "server",
+    "version": "1.0.0",
+    "description": "Audiobook Server",
+    "main": "app.js",
+    "license": "MIT",
+    "scripts": {
+      "dev": "nodemon app.js",
+      "start": "node app.js"
+    },
+    "engines": {
+      "node": "16.x"
+    }
+  }
