@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const baseURL = "https://bookify-proj.herokuapp.com/";
+const baseURL = process.env.REACT_APP_BASE_URL;
 
 export const validateUser = async (token) => {
     try {

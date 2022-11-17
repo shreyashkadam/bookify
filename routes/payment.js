@@ -8,6 +8,7 @@ const instance = new Razorpay({
 });
 
 const router = require("express").Router();
+const clientURL = process.env.CLIENT_URL;
 
 router.post('/checkout', async (req, res) => {
     if (!req.body.amount) {
@@ -42,7 +43,7 @@ router.post('/paymentVerification', async (req, res) => {
     });
 
     res.redirect(
-        `http://localhost:3000/paymentsuccess?reference=${razorpay_payment_id}`
+        `${clientURL}paymentsuccess?reference=${razorpay_payment_id}`
     );
 
 });

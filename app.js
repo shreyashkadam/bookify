@@ -43,4 +43,4 @@ mongoose.connection
 })
 
 
-app.listen(4000, () => console.log("Listening to port 4000"));
+app.listen(process.env.PORT, () => console.log("Listening to port 4000"));
