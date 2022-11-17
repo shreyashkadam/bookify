@@ -24,7 +24,7 @@ const Header = () => {
                 name: "Bookify",
                 description: "Buy Bookify Premium",
                 order_id: data.order.id,
-                callback_url: "https://bookify-proj.herokuapp.com/api/payment/paymentVerification",
+                callback_url: "https://bookify-server.onrender.com/api/payment/paymentVerification",
                 prefill: {
                     name: "Shreyash",
                     email: "shreyash.kadam10@gmail.com",
