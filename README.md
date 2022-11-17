@@ -130,32 +130,11 @@ To get a local copy up and running follow these simple steps.
    ```sh
    npm install
    ```
-6. Create `.env` file in both, `/client` and `/server` folder
-7. Append your Firbase Config Keys in `/client/.env`
-   ```js
-   REACT_APP_FIREBASE_API_KEY = 'YOUR apiKey'
-   REACT_APP_FIREBASE_AUTH_DOMAIN = 'YOUR appDomain'
-   REACT_APP_FIREBASE_PROJECT_ID = 'YOUR projectId'
-   REACT_APP_FIREBASE_STORAGE_BUCKET = 'YOUR storageBucket'
-   REACT_APP_FIREBASE_MESSAGING_ID = 'YOUR messagingSenderId'
-   REACT_APP_FIREBASE_APPID = 'YOUR appId'
-   ```
-8. Append your Razorpay API Keys in `/client/.env`
-   ```js
-   REACT_APP_RAZORPAY_API_KEY = 'YOUR API KEY'
-   REACT_APP_RAZORPAY_API_SECRET = 'YOUR API SECRET'
-   ```
-9. Append your Razorpay API Keys in `/server/.env`
-   ```js
-   RAZORPAY_API_KEY = 'YOUR API KEY'
-   RAZORPAY_API_SECRET = 'YOUR API SECRET'
-   ```
-10. Append your MongoDB Database String in `/server/.env`
-    ```js
-    DB_STRING = 'YOUR DATABASE STRING';
-    ```
-11. Download private key from Firebase and rename it to `serviceAccountKey.json` (Project Setting -> Service Accounts -> Generate Private Key)
-12. Put your `serviceAccountKey.json` in `/server/config` folder
+6. Create `.env` file in both `/client` and `/server` folder
+7. Copy the content from `.example.env` files in both `/client` and `/server` folder and paste it in the respective `.env` files created in *step 6*. 
+8. Fill your API keys obtained in newly created `.env` files.  **(You shouldn't update variable names, just update the value)**
+9. Download private key from Firebase and rename it to `serviceAccountKey.json` (Project Setting -> Service Accounts -> Generate Private Key)
+10. Put your `serviceAccountKey.json` in `/server/config` folder
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
