@@ -41,7 +41,7 @@
     <br />
     <a href="https://bookify-yqap.onrender.com/">View Demo</a>
     ·
-    <a href="https://github.com/shreyashkadam/bookify/issues">Razorpay Test Cards</a> (For testing payment gateway)
+    <a href="https://razorpay.com/docs/payments/payments/test-card-upi-details/">Razorpay Test Cards</a> (For testing payment gateway)
   </p>
 </div>
 
@@ -132,7 +132,7 @@ To get a local copy up and running follow these simple steps.
    ```
 6. Create `.env` file in both `/client` and `/server` folder
 7. Copy the content from `.example.env` files in both `/client` and `/server` folder and paste it in the respective `.env` files created in *step 6*. 
-8. Fill your API keys obtained in newly created `.env` files.  **(You shouldn't update variable names, just update the value)**
+8. Fill your API keys in newly created `.env` files.  **(You shouldn't update variable names, just update the value)**
 9. Download private key from Firebase and rename it to `serviceAccountKey.json` (Project Setting -> Service Accounts -> Generate Private Key)
 10. Put your `serviceAccountKey.json` in `/server/config` folder
 
@@ -143,7 +143,10 @@ To get a local copy up and running follow these simple steps.
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-
+1. Install packages and dependencies
+   ```sh
+   npm install
+   ```
 1. Start the server 
    ```sh
    cd server/
