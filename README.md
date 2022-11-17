@@ -39,11 +39,9 @@
     An Online Audiobook Streaming Website made using MERN Stack, Tailwind CSS, Firebase for Google authentication and Storage, and Razorpay for Payment Integration
     <br />
     <br />
-    <a href="https://shreyash-bookify.netlify.app">View Demo</a>
+    <a href="https://bookify-yqap.onrender.com/">View Demo</a>
     ·
-    <a href="https://github.com/shreyashkadam/bookify/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/shreyashkadam/bookify/issues">Request Feature</a>
+    <a href="https://github.com/shreyashkadam/bookify/issues">Razorpay Test Cards</a> (For testing payment gateway)
   </p>
 </div>
 
